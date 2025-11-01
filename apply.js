@@ -41,13 +41,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
     emailjs.send("service_ywey0pu", "template_bmbiu2a", data)
       .then(() => {
-        alert("✅ Application submitted successfully!\nYour UUID: " + uuid);
+        alert("Application submitted successfully! Please check your email and DO NOT loose your UUID.\nYour UUID: " + uuid);
         form.reset();
         checkValidity();
       })
       .catch((err) => {
         console.error("EmailJS Error:", err);
-        alert("❌ Failed to send application.\nError: " + (err.text || err));
+        alert("Failed to send application. Contact 9971500718\nError: " + (err.text || err));
       });
   });
 });
