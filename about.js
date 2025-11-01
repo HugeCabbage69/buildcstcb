@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", () => {
     {
       name: "Sushant Kumar",
       title: "Head of Design",
-      desc: "Manages visual and UI/UX design, ensuring all projects maintain BuildStorm’s clean and creative identity.<br><br><br>",
+      desc: "Handles design and aesthetics. If it looks good, he did it. If it doesn’t, he’s ‘still working on it’.<br><br><br>",
       img: "Images/LeadsSushant.png"
     },
     {
