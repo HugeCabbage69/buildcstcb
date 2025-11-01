@@ -1,6 +1,6 @@
 const welcomeText = `Hello, creator! It seems you have stumbled upon the game-dev hub of CSTC. BuildStorm.
 
-Creative games are fun. And BuildStorm is a wasteland of creativity. Whether you already have some experience in design, code, drawing, writing or if you are a completely noob at this, as long as you have even a spark of interest in making games, you can apply to join us.
+Creative games are fun. And BuildStorm is a wasteland of creativity. Whether you already have some experience in design, code, drawing, writing or if you are a complete noob at this, as long as you have even a spark of interest in making games, you can apply to join us.
 
 Roles you can apply for:
 
