@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BuildStorm - About</title>
+  <link rel="stylesheet" href="styleabout.css">
+  <script src="about.js" defer></script>
+</head>
+<body>
+  <header class="navbar">
+    <div class="nav-left">
+      <a href="index.html">
+        <img src="Images/MainLogo.png" alt="Logo" class="logo">
+      </a>
+    </div>
+
+    <button class="menu-toggle" onclick="document.querySelector('.nav-right').classList.toggle('active')">☰</button>
+
+    <div class="nav-right">
+      <a href="index.html" class="nav-btn">Home</a>
+      <a href="projects.html" class="nav-btn">Projects</a>
+      <a href="apply.html" class="nav-btn">Apply</a>
+      <a href="about.html" class="nav-btn" style="color:#00bcd4;">About</a>
+    </div>
+  </header>
+
+  <main class="about-page">
+    <section class="about-header">
+      <h1>About <span>BuildStorm</span></h1>
+      <p>Let's build some games</p>
+    </section>
+
+    <section class="about-content">
+      <h2>Who We Are</h2>
+      <p>
+        BuildStorm is a wing under CSTC, Specilizing in GameDevelopment.
+      </p>
+    </section>
+
+    <section class="about-content">
+      <h2>What We Do</h2>
+      <p>
+        We encourage interdisciplinary teamwork and provide a platform to turn your ideas into incredible games.
+        BuildStorm supports imagination and innovation across fields. You can be an absolute noob, and still join.
+        <br><br>
+        We will show you the ropes.
+      </p>
+    </section>
+
+    <section class="team-section">
+      <h2>Meet Our Leads</h2>
+      <div id="team-container" class="team-container">
+      </div>
+    </section>
+  </main>
+</body>
+</html>

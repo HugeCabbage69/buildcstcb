@@ -1,0 +1,422 @@
+/* ================== styleabout.css (finalized & fixed) ================== */
+
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Base / Body */
+:root {
+  --bg: #121212;
+  --card: #1e1e1e;
+  --muted: #bbb;
+  --text: #f0f0f0;
+  --accent: #00bcd4;
+}
+
+body {
+  font-family: "Bahnschrift", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: var(--bg);
+  color: var(--text);
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+/* ================== NAVBAR (copied from home) ================== */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+  background-color: #1e1e1e;
+  padding: 0 2.5rem;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.5);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  height: 90px;
+}
+
+.nav-left {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  height: 65px;
+  cursor: pointer;
+  transition: opacity 0.2s ease-in-out;
+}
+
+.logo:hover {
+  opacity: 0.8;
+}
+
+.nav-right {
+  display: flex;
+  align-items: stretch;
+}
+
+.nav-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 2.5rem;
+  font-size: 1.3rem;
+  text-decoration: none;
+  color: #f0f0f0;
+  font-weight: 600;
+  transition: all 0.3s ease-in-out;
+  position: relative;
+  overflow: hidden;
+}
+
+.nav-btn::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: -100%;
+  width: 100%;
+  height: 3px;
+  background: #00bcd4;
+  transition: left 0.3s ease-in-out;
+}
+
+.nav-btn:hover {
+  background-color: #2a2a2a;
+  color: #00bcd4;
+}
+
+.nav-btn:hover::after {
+  left: 0;
+}
+
+/* ================== ABOUT PAGE ================== */
+.about-page {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 3rem 2rem 5rem;
+}
+
+/* Header */
+.about-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.about-header h1 {
+  font-size: 2.6rem;
+  color: var(--text);
+  margin-bottom: 0.4rem;
+}
+
+.about-header h1 span {
+  color: var(--accent);
+}
+
+.about-header p {
+  color: var(--muted);
+  font-size: 1.1rem;
+}
+
+/* Info content boxes */
+.about-content {
+  background: var(--card);
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.4);
+  margin-bottom: 2rem;
+}
+
+.about-content h2 {
+  color: var(--accent);
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+}
+
+/* ================== TEAM SECTION ================== */
+.team-section {
+  margin-top: 3rem;
+}
+
+.team-section h2 {
+  text-align: center;
+  color: var(--accent);
+  font-size: 2rem;
+  margin-bottom: 2rem;
+}
+
+/* Team layout — one column */
+.team-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+/* Team card */
+.team-card {
+  display: flex;
+  align-items: center;            /* <- center so image won't stretch */
+  justify-content: space-between;
+  background: var(--card);
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.4);
+  overflow: hidden; /* image and text blend perfectly */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  min-height: 140px;              /* reduced min-height to match smaller imgs */
+  padding: 1rem;
+  gap: 1.5rem;
+}
+
+.team-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.6);
+}
+
+/* Alternate layout */
+.team-card:nth-child(even) {
+  flex-direction: row-reverse;
+  text-align: right;
+}
+
+/* Team info (text) */
+.team-info {
+  flex: 1;
+  padding: 0.5rem 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.team-info h3 {
+  font-size: 1.2rem;
+  color: var(--accent);
+  margin-bottom: 0.4rem;
+}
+
+.team-info p {
+  font-size: 1rem;
+  color: #ddd;
+  margin: 0;
+}
+
+.team-photo {
+  width: 300px !important;
+  height: 300px !important;
+  min-width: 120px !important;
+  min-height: 120px !important;
+  max-width: 300px !important;
+  max-height: 300px !important;
+  object-fit: cover !important;
+  border-radius: 10px;
+  flex-shrink: 0 !important;
+  display: block;
+}
+
+.team-card:nth-child(odd) .team-photo {
+  border-top-right-radius: 12px;
+  border-bottom-right-radius: 12px;
+}
+.team-card:nth-child(even) .team-photo {
+  border-top-left-radius: 12px;
+  border-bottom-left-radius: 12px;
+}
+
+@media (max-width: 850px) {
+  .team-card {
+    flex-direction: column;
+    text-align: center;
+    min-height: auto;
+  }
+
+  .team-card:nth-child(even) {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .team-photo {
+    width: 100% !important;
+    height: 250px !important;
+    min-width: unset !important;
+    min-height: unset !important;
+    border-radius: 0;
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
+  }
+}
+
+/* ================== RESPONSIVE DESIGN ================== */
+
+/* --- Hide hamburger by default (desktop) --- */
+.menu-toggle {
+  display: none;
+}
+
+/* --- General scaling for tablets --- */
+@media (max-width: 1024px) {
+  body {
+    font-size: 16px;
+  }
+
+  .navbar {
+    padding: 0 1.5rem;
+    height: 80px;
+  }
+
+  .nav-btn {
+    padding: 0 1.2rem;
+    font-size: 1.1rem;
+  }
+
+  .logo {
+    height: 55px;
+  }
+
+  /* Grid pages (like homepage & projects) collapse */
+  .homepage {
+    grid-template-columns: 1fr;
+  }
+
+  .projects-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* --- Mobile layout adjustments --- */
+@media (max-width: 768px) {
+  /* Navbar */
+  .navbar {
+    flex-wrap: wrap;
+    height: auto;
+    padding: 0.8rem 1rem;
+    position: relative;
+  }
+
+  /* Hide nav-right by default */
+  .nav-right {
+    display: none;
+    flex-direction: column;
+    background: #1e1e1e;
+    width: 100%;
+    position: absolute;
+    top: 80px;
+    left: 0;
+    border-top: 1px solid #333;
+  }
+
+  /* Nav buttons stacked */
+  .nav-btn {
+    padding: 1rem;
+    justify-content: flex-start;
+    font-size: 1.1rem;
+    border-bottom: 1px solid #2a2a2a;
+  }
+
+  .nav-btn:last-child {
+    border-bottom: none;
+  }
+
+  /* Hamburger button (visible on mobile only) */
+  .menu-toggle {
+    display: block;
+    font-size: 2rem;
+    cursor: pointer;
+    color: #f0f0f0;
+    background: none;
+    border: none;
+    margin-left: 1rem;
+  }
+
+  /* Show menu when toggled active */
+  .nav-right.active {
+    display: flex;
+  }
+
+  /* Homepage grid */
+  .homepage {
+    grid-template-columns: 1fr;
+    padding: 1.5rem;
+  }
+
+  .editable-text,
+  .notice-board {
+    font-size: 1rem;
+    padding: 1rem;
+  }
+
+  /* Apply Page */
+  .apply-page {
+    width: 95%;
+    margin: 1rem auto;
+  }
+
+  .apply-form {
+    padding: 1.2rem;
+  }
+
+  /* About Page */
+  .about-page {
+    padding: 2rem 1rem;
+  }
+
+  .team-card {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .team-photo {
+    width: 100% !important;
+    height: 220px !important;
+    border-radius: 0;
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
+  }
+
+  /* Projects Page */
+  .projects-container {
+    grid-template-columns: 1fr;
+    padding: 1rem;
+  }
+
+  .project-card {
+    min-height: auto;
+  }
+}
+
+/* --- Super small screens (under 480px) --- */
+@media (max-width: 480px) {
+  body {
+    font-size: 15px;
+  }
+
+  .navbar {
+    height: 70px;
+    padding: 0 1rem;
+  }
+
+  .logo {
+    height: 45px;
+  }
+
+  .nav-btn {
+    font-size: 1rem;
+  }
+
+  /* Input sizing */
+  .apply-form input,
+  .apply-form select,
+  .apply-form textarea {
+    font-size: 0.9rem;
+  }
+
+  /* Smaller team photos */
+  .team-photo {
+    height: 180px !important;
+  }
+
+  /* Smaller project cards */
+  .project-card .project-image {
+    height: 150px;
+  }
+}

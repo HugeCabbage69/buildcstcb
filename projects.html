@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projects - BuildStorm</title>
+  <link rel="stylesheet" href="styleprojects.css">
+  <script src="projects.js" defer></script>
+</head>
+<body>
+  <header class="navbar">
+    <div class="nav-left">
+      <a href="index.html">
+        <img src="Images/MainLogo.png" alt="Logo" class="logo">
+      </a>
+    </div>
+
+    <button class="menu-toggle" onclick="document.querySelector('.nav-right').classList.toggle('active')">☰</button>
+
+    <div class="nav-right">
+      <a href="index.html" class="nav-btn">Home</a>
+      <a href="projects.html" class="nav-btn">Projects</a>
+      <a href="apply.html" class="nav-btn">Apply</a>
+      <a href="about.html" class="nav-btn">About</a>
+    </div>
+  </header>
+
+  <main class="projects-page">
+    <div class="projects-header">
+      <h1>Our Projects</h1>
+    </div>
+
+    <div id="projects-container" class="projects-container">
+    </div>
+  </main>
+</body>
+</html>
