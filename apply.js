@@ -5,7 +5,14 @@ document.addEventListener("DOMContentLoaded", () => {
   emailjs.init("uVO7OJqsH4jQI30yM");
 
   function checkValidity() {
-    if (form.checkValidity()) {
+    const email = form["email"].value.trim();
+    const phone = form["phone"].value.trim();
+
+    const validEmail = /^[a-zA-Z0-9._%+-]+@sau\.ac\.in$/i.test(email);
+    const validPhone = /^\d{10}$/.test(phone);
+
+    // built-in validity + custom checks
+    if (form.checkValidity() && validEmail && validPhone) {
       submitBtn.disabled = false;
       submitBtn.classList.add("active");
     } else {
@@ -21,6 +28,20 @@ document.addEventListener("DOMContentLoaded", () => {
   form.addEventListener("submit", (e) => {
     e.preventDefault();
 
+    const email = form["email"].value.trim();
+    const phone = form["phone"].value.trim();
+
+    // Final validation before sending
+    if (!/^[a-zA-Z0-9._%+-]+@sau\.ac\.in$/i.test(email)) {
+      alert("Please use your official college email (must end with @sau.ac.in).");
+      return;
+    }
+
+    if (!/^\d{10}$/.test(phone)) {
+      alert("Please enter a valid 10-digit phone number.");
+      return;
+    }
+
     const uuid = Math.floor(1000000 + Math.random() * 9000000);
 
     const data = {
@@ -30,8 +51,8 @@ document.addEventListener("DOMContentLoaded", () => {
       course: form["course"].value,
       year: form["year"].value,
       section: form["section"].value,
-      email: form["email"].value,
-      phone: form["phone"].value,
+      email: email,
+      phone: phone,
       field: form["field"].value,
       familiarity: form["familiarity"].value,
       other_wing: form["other-wing"].checked ? "Yes" : "No",
@@ -41,7 +62,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     emailjs.send("service_ywey0pu", "template_bmbiu2a", data)
       .then(() => {
-        alert("Application submitted successfully! Please check your email and DO NOT loose your UUID.\nYour UUID: " + uuid);
+        alert("Application submitted successfully!\n\nPlease check your email and DO NOT lose your UUID.\nYour UUID: " + uuid);
         form.reset();
         checkValidity();
       })
