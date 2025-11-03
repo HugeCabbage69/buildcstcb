@@ -3,8 +3,9 @@ document.addEventListener("DOMContentLoaded", () => {
   const submitBtn = form.querySelector(".submit-btn");
 
   function checkValidity() {
-    const email = form["email"].value.trim();
-    const phone = form["phone"].value.trim();
+    const email = document.getElementById("email").value.trim();
+    const phone = document.getElementById("phone").value.trim();
+
 
     const validEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email); // generic email check
     const validPhone = /^\d{10}$/.test(phone);

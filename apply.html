@@ -117,14 +117,59 @@
     </form>
   </main>
 
-  <script>
-    function validateForm(e) {
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const form = document.getElementById("apply-form");
+    const submitBtn = form.querySelector(".submit-btn");
+
+    // Check field validity dynamically
+    function checkValidity() {
       const email = document.getElementById("email").value.trim();
       const phone = document.getElementById("phone").value.trim();
 
-      alert("Application submitted successfully!");
-      return true; // allows submission to Google Form
+      const validEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+      const validPhone = /^\d{10}$/.test(phone);
+
+      if (form.checkValidity() && validEmail && validPhone) {
+        submitBtn.disabled = false;
+        submitBtn.classList.add("active");
+      } else {
+        submitBtn.disabled = true;
+        submitBtn.classList.remove("active");
+      }
     }
-  </script>
+
+    // Monitor input changes
+    form.addEventListener("input", checkValidity);
+    form.addEventListener("change", checkValidity);
+    checkValidity();
+
+    // Handle form submission
+    form.addEventListener("submit", (e) => {
+      const email = document.getElementById("email").value.trim();
+      const phone = document.getElementById("phone").value.trim();
+
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+        alert("Please enter a valid email address.");
+        e.preventDefault();
+        return;
+      }
+
+      if (!/^\d{10}$/.test(phone)) {
+        alert("Please enter a valid 10-digit phone number.");
+        e.preventDefault();
+        return;
+      }
+
+      // Delay alert slightly so form can submit to Google first
+      setTimeout(() => {
+        alert("Application submitted successfully!");
+        form.reset();
+        submitBtn.disabled = true;
+        submitBtn.classList.remove("active");
+      }, 100);
+    });
+  });
+</script>
 </body>
 </html>
