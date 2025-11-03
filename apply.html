@@ -122,18 +122,6 @@
       const email = document.getElementById("email").value.trim();
       const phone = document.getElementById("phone").value.trim();
 
-      if (!email.endsWith("@sau.ac.in")) {
-        alert("Please use your college email ending with @sau.ac.in");
-        e.preventDefault();
-        return false;
-      }
-
-      if (!/^[0-9]{10}$/.test(phone)) {
-        alert("Please enter a valid 10-digit phone number.");
-        e.preventDefault();
-        return false;
-      }
-
       alert("Application submitted successfully!");
       return true; // allows submission to Google Form
     }
