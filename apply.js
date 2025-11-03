@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const email = form["email"].value.trim();
     const phone = form["phone"].value.trim();
 
-    const validEmail = /^[a-zA-Z0-9._%+-]+@sau\.ac\.in$/i.test(email);
+    const validEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email); // generic email check
     const validPhone = /^\d{10}$/.test(phone);
 
     if (form.checkValidity() && validEmail && validPhone) {
@@ -26,8 +26,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const email = form["email"].value.trim();
     const phone = form["phone"].value.trim();
 
-    if (!/^[a-zA-Z0-9._%+-]+@sau\.ac\.in$/i.test(email)) {
-      alert("Please use your official college email (must end with @sau.ac.in).");
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      alert("Please enter a valid email address.");
       e.preventDefault();
       return;
     }
