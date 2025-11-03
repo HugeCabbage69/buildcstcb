@@ -37,7 +37,6 @@
       action="https://docs.google.com/forms/d/e/1FAIpQLSeKvnrx3LWgb983X7IR9ll5eJwbSsY8xVCsOUD0T_0v8Zf2nw/formResponse"
       method="POST"
       target="hidden_iframe"
-      onsubmit="return validateForm(event)"
     >
       <div class="form-row">
         <label for="first-name">First Name *</label>
@@ -65,7 +64,7 @@
       </div>
 
       <div class="form-row">
-        <label for="email">College Email (must end with @sau.ac.in) *</label>
+        <label for="email">Email *</label>
         <input type="email" id="email" name="entry.852745715" required>
       </div>
 
@@ -76,18 +75,18 @@
 
       <div class="form-row">
         <label for="field">Field You Want to Apply For *</label>
-        <select id="field" name="entry.1126059469" required>
+        <select id="field" name="entry.546048750" required>
           <option value="" hidden>Select a field</option>
           <option value="Programmer">Programmer</option>
-          <option value="Artist">Artist (This includes 3D modeling)</option>
+          <option value="Artist (Includes both 2D and 3D)">Artist (This includes 3D modeling)</option>
           <option value="Writer">Writer</option>
           <option value="Designer">Designer</option>
-          <option value="Musician">Musician</option>
+          <option value="Music Artist">Musician</option>
         </select>
       </div>
 
       <div class="form-row checkbox-row">
-        <input type="checkbox" id="other-wing" name="entry.1254414211">
+        <input type="checkbox" id="other-wing" name="entry.1466099069">
         <label for="other-wing">Are you a member of any other wing of CSTC?</label>
       </div>
 
@@ -103,73 +102,20 @@
 
       <div class="form-row">
         <label for="motivation">Why do you want to join BuildStorm? *</label>
-        <textarea id="motivation" name="entry.1466099069" rows="5" required></textarea>
+        <textarea id="motivation" name="entry.1126059469" rows="5" required></textarea>
       </div>
 
       <div class="form-row">
         <label for="portfolio">Portfolio (Optional - Google Drive link)</label>
-        <input type="text" id="portfolio" name="entry.9999999999">
+        <input type="text" id="portfolio" name="entry.1254414211">
       </div>
 
       <div class="form-row">
-        <button type="submit" class="submit-btn">Submit Application</button>
+        <button type="submit" class="submit-btn" disabled>Submit Application</button>
       </div>
     </form>
   </main>
 
-<script>
-  document.addEventListener("DOMContentLoaded", () => {
-    const form = document.getElementById("apply-form");
-    const submitBtn = form.querySelector(".submit-btn");
-
-    // Check field validity dynamically
-    function checkValidity() {
-      const email = document.getElementById("email").value.trim();
-      const phone = document.getElementById("phone").value.trim();
-
-      const validEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-      const validPhone = /^\d{10}$/.test(phone);
-
-      if (form.checkValidity() && validEmail && validPhone) {
-        submitBtn.disabled = false;
-        submitBtn.classList.add("active");
-      } else {
-        submitBtn.disabled = true;
-        submitBtn.classList.remove("active");
-      }
-    }
-
-    // Monitor input changes
-    form.addEventListener("input", checkValidity);
-    form.addEventListener("change", checkValidity);
-    checkValidity();
-
-    // Handle form submission
-    form.addEventListener("submit", (e) => {
-      const email = document.getElementById("email").value.trim();
-      const phone = document.getElementById("phone").value.trim();
-
-      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-        alert("Please enter a valid email address.");
-        e.preventDefault();
-        return;
-      }
-
-      if (!/^\d{10}$/.test(phone)) {
-        alert("Please enter a valid 10-digit phone number.");
-        e.preventDefault();
-        return;
-      }
-
-      // Delay alert slightly so form can submit to Google first
-      setTimeout(() => {
-        alert("Application submitted successfully!");
-        form.reset();
-        submitBtn.disabled = true;
-        submitBtn.classList.remove("active");
-      }, 100);
-    });
-  });
-</script>
+  <script src="apply.js"></script>
 </body>
 </html>

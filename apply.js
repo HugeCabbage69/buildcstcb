@@ -2,10 +2,12 @@ document.addEventListener("DOMContentLoaded", () => {
   const form = document.getElementById("apply-form");
   const submitBtn = form.querySelector(".submit-btn");
 
+  // Disable button by default
+  submitBtn.disabled = true;
+
   function checkValidity() {
     const email = document.getElementById("email").value.trim();
     const phone = document.getElementById("phone").value.trim();
-
 
     const validEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email); // generic email check
     const validPhone = /^\d{10}$/.test(phone);
@@ -19,6 +21,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
+  // Check input dynamically
   form.addEventListener("input", checkValidity);
   form.addEventListener("change", checkValidity);
   checkValidity();
@@ -39,6 +42,15 @@ document.addEventListener("DOMContentLoaded", () => {
       return;
     }
 
-    alert("Application submitted successfully!");
+    console.log("Submitting data to Google Form...");
+    console.log(Object.fromEntries(new FormData(form)));
+
+    // Allow form to submit to Google first
+    setTimeout(() => {
+      alert("Application submitted successfully!");
+      form.reset();
+      submitBtn.disabled = true;
+      submitBtn.classList.remove("active");
+    }, 300);
   });
 });
