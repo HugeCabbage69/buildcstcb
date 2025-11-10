@@ -15,7 +15,6 @@ If you are willing to contribute, we want you here. Just head over to the Apply 
 And once again, Welcome to BuildStorm`;
 
 const notices = [
-  "Meeting on Friday at 3 PM",
   "Application deadline: November 13th",
   "New project updates available",
 ];
