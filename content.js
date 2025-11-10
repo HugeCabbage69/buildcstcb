@@ -16,7 +16,7 @@ And once again, Welcome to BuildStorm`;
 
 const notices = [
   "Meeting on Friday at 3 PM",
-  "Application deadline: November 9th",
+  "Application deadline: November 13th",
   "New project updates available",
 ];
 
