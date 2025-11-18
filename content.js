@@ -15,6 +15,8 @@ If you are willing to contribute, we want you here. Just head over to the Apply 
 And once again, Welcome to BuildStorm`;
 
 const notices = [
+  "Interview dates to be announced soon",
+  "Application process has closed.",
   "Application deadline: November 13th",
   "New project updates available",
 ];
